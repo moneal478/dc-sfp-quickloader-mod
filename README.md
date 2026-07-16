@@ -6,9 +6,10 @@ into compatible empty ports on the switch you are looking at.
 
 ## Preview status
 
-The current public build is **v0.1.4-preview.1** (assembly version `0.1.4`). Core
+The current public build is **v0.1.5-preview.1** (assembly version `0.1.5`). Core
 quick loading has been validated with standard SFP, 25G, and 40G/QSFP modules
-on purchased switches, routers, and firewalls.
+on purchased switches, routers, and firewalls. This preview adds support for the
+customer and DMZ switch panels built into the map.
 
 Three preview limitations remain:
 
@@ -16,13 +17,15 @@ Three preview limitations remain:
   configured key still works, and result messages/logging are available.
 - Performance while holding a module box still needs broader in-game
   confirmation.
-- Customer and DMZ switch panels built into the map are not targeted correctly
-  by v0.1.4. Upgrade to v0.1.5-preview.1 for that repair.
+- Built-in customer/DMZ support still needs broader in-game confirmation.
 
 ## Features
 
 - Loads every compatible module it can from the held box with one key press.
-- Supports aiming at a switch body or one of its individual ports.
+- Supports purchased switches and the customer/DMZ switch panels built into the
+  map.
+- Supports aiming at a device body or one of its individual ports.
+- Only fills ports on the focused customer or DMZ panel.
 - Leaves occupied ports unchanged.
 - Leaves incompatible or excess modules in the box.
 - Keeps the game's normal `E` interaction available by using `F` by default.
@@ -47,7 +50,7 @@ This mod is not affiliated with Waseku, Data Center, Steam, or MelonLoader.
 2. Install MelonLoader for Data Center if it is not already installed, launch
    the game once, and quit again.
 3. Download
-   [`DataCenterSfpQuickLoad-v0.1.4-preview.1.zip`](releases/v0.1.4-preview.1/DataCenterSfpQuickLoad-v0.1.4-preview.1.zip).
+   [`DataCenterSfpQuickLoad-v0.1.5-preview.1.zip`](releases/v0.1.5-preview.1/DataCenterSfpQuickLoad-v0.1.5-preview.1.zip).
 4. In Steam, open **Data Center > Manage > Browse local files**.
 5. If the opened Data Center installation folder does not contain a `Mods`
    folder, create a new folder there and name it exactly `Mods` with a capital
@@ -66,15 +69,15 @@ This mod is not affiliated with Waseku, Data Center, Steam, or MelonLoader.
    and `Data Center SFP Quick Load loaded.`
 
 The ZIP checksum is published beside it in
-[`SHA256SUMS`](releases/v0.1.4-preview.1/SHA256SUMS), and hashes for the two
+[`SHA256SUMS`](releases/v0.1.5-preview.1/SHA256SUMS), and hashes for the two
 extracted files are in
-[`CONTENTS_SHA256SUMS`](releases/v0.1.4-preview.1/CONTENTS_SHA256SUMS).
+[`CONTENTS_SHA256SUMS`](releases/v0.1.5-preview.1/CONTENTS_SHA256SUMS).
 
 ## Use
 
 1. Pick up a non-empty box of 1G, 10G, 25G, or 40G modules.
-2. Stand near the destination device and center your view on the switch body or
-   one of its SFP/QSFP ports.
+2. Stand near the destination device and center your view on the purchased
+   switch, built-in customer/DMZ panel body, or one of its SFP/QSFP ports.
 3. Press `F` once, or the key configured in
    `UserData/DataCenterSfpQuickLoad.cfg`.
 
@@ -150,7 +153,9 @@ setting, then restart the game.
   roughly six metres.
 - Confirm the configured key and restart after changing it.
 - Remember that the bottom-bar key hint is absent in this preview.
-- Built-in customer and DMZ panels require v0.1.5-preview.1 or newer.
+
+If the mod cannot identify the focused device, it writes a `Quick-load focus
+diagnostics` line to `MelonLoader/Latest.log` with targeting details.
 
 ### No compatible open ports are found
 
